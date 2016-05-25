@@ -1,0 +1,368 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Instructions\n",
+    "----\n",
+    "\n",
+    "Some simple exercises to quickly get you up to speed with basic Python programming in the Jupyter ntoebook.\n",
+    "\n",
+    "- Exercise 1: Use of control structures \n",
+    "- Exercise 2: Text processing and use of dictionaries\n",
+    "- Exercise 3: Use of `numpy` and indexing\n",
+    "- Exercise 4: Working with web resources and images"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**1.** Write a program to solve the FizzBuzz problem."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "Fizz\n",
+      "4\n",
+      "Buzz\n",
+      "Fizz\n",
+      "7\n",
+      "8\n",
+      "Fizz\n",
+      "Buzz\n",
+      "11\n",
+      "Fizz\n",
+      "13\n",
+      "14\n",
+      "FizzBuzz\n",
+      "16\n",
+      "17\n",
+      "Fizz\n",
+      "19\n",
+      "Buzz\n",
+      "Fizz\n",
+      "22\n",
+      "23\n",
+      "Fizz\n",
+      "Buzz\n",
+      "26\n",
+      "Fizz\n",
+      "28\n",
+      "29\n",
+      "FizzBuzz\n",
+      "31\n",
+      "32\n",
+      "Fizz\n",
+      "34\n",
+      "Buzz\n",
+      "Fizz\n",
+      "37\n",
+      "38\n",
+      "Fizz\n",
+      "Buzz\n",
+      "41\n",
+      "Fizz\n",
+      "43\n",
+      "44\n",
+      "FizzBuzz\n",
+      "46\n",
+      "47\n",
+      "Fizz\n",
+      "49\n",
+      "Buzz\n",
+      "Fizz\n",
+      "52\n",
+      "53\n",
+      "Fizz\n",
+      "Buzz\n",
+      "56\n",
+      "Fizz\n",
+      "58\n",
+      "59\n",
+      "FizzBuzz\n",
+      "61\n",
+      "62\n",
+      "Fizz\n",
+      "64\n",
+      "Buzz\n",
+      "Fizz\n",
+      "67\n",
+      "68\n",
+      "Fizz\n",
+      "Buzz\n",
+      "71\n",
+      "Fizz\n",
+      "73\n",
+      "74\n",
+      "FizzBuzz\n",
+      "76\n",
+      "77\n",
+      "Fizz\n",
+      "79\n",
+      "Buzz\n",
+      "Fizz\n",
+      "82\n",
+      "83\n",
+      "Fizz\n",
+      "Buzz\n",
+      "86\n",
+      "Fizz\n",
+      "88\n",
+      "89\n",
+      "FizzBuzz\n",
+      "91\n",
+      "92\n",
+      "Fizz\n",
+      "94\n",
+      "Buzz\n",
+      "Fizz\n",
+      "97\n",
+      "98\n",
+      "Fizz\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Write a program that prints the numbers from 1 to 100. \n",
+    "# But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.\n",
+    "# For numbers which are multiples of both three and five print “FizzBuzz”.\"\n",
+    "\n",
+    "for i in range (1,100):\n",
+    "    if(i%3 == 0 and i%5 == 0):\n",
+    "        print(\"FizzBuzz\")\n",
+    "    elif(i%3 == 0):\n",
+    "        print(\"Fizz\")\n",
+    "    elif(i%5 == 0):\n",
+    "        print(\"Buzz\")\n",
+    "    else:\n",
+    "        print(i)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**2.** Find the top 5 most frequently used words in the passage below. Remove punctuation and ignore case."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "fizz\n",
+      "buzz\n",
+      "the\n",
+      "or\n",
+      "of\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Input text\n",
+    "text = \"\"\"Different divisors can be used in place of, or in addition to, 3 and 5, and different words or gestures can replace \"fizz\" or \"buzz\". For example, in Australia a variant based on the game of cricket is played. In this variant, the special numbers are 4 and 6, which are replaced with the cricket umpiring gestures for their respective scoring plays. A common version of the game is also called \"7 Boom\". The players replace every number divisible by 7 or containing the digit 7 with \"boom\".[citation needed]\n",
+    "\n",
+    "Instead of replacing numbers that have 3 or 5 as a factor, the game can be played by replacing numbers containing the digit 3 or 5 with \"fizz\" or \"buzz\".\n",
+    "\n",
+    "1, 2, Fizz, 4, Buzz, 6, 7, 8, 9, 10, 11, 12, Fizz, 14, Buzz, 16, 17, 18, 19, 20, 21, 22, Fizz, 24, Buzz, 26, 27, 28, 29, Fizz, Fizz, Fizz, Fizz, Fizz, Fizz Buzz, Fizz, Fizz, Fizz, Fizz, 40, 41, 42, Fizz, 44, Buzz, ...\n",
+    "\n",
+    "In these variations, sometimes only the actual digit is replaced, so 23 becomes \"twenty-fizz\" and 50 is \"buzzty\". This variation can be combined with the original to form an even more challenging sequence:\n",
+    "\n",
+    "1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, Fizz, 14, Fizz Buzz, 16, 17, Fizz, 19, Buzz, Fizz, 22, Fizz, Fizz, Buzz, 26, Fizz, 28, 29, Fizz Buzz, Fizz, Fizz, Fizz, Fizz, Fizz, Fizz Buzz, Fizz, Fizz, Fizz, Fizz, Buzz, 41, Fizz, Fizz, 44, Fizz Buzz, ...\n",
+    "\n",
+    "The game can be played in a mathematical base other than 10. For example, playing in base 5 would proceed as follows:\n",
+    "\n",
+    "1, 2, Fizz, 4, Buzz, Fizz, 12, 13, Fizz, Buzz, 21, Fizz, 23, 24, Fizz Buzz, 31, 32, Fizz, 34, Buzz, Fizz, ...\n",
+    "\n",
+    "More challenging variation has the direction of play change on Fizz or Buzz, but not on Fizz-Buzz. For certain sequences, this makes the action bounce between 2 or 3 players and causes misplays when it breaks out. The 3/7 version of the game has a complex sequence between 12 and 18, for example. A New Jersey variation is just to say buzz on prime numbers and switch directions. The reversal of direction may be optional.\"\"\"\n",
+    "\n",
+    "#Eliminate all forms of punctuation from the text\n",
+    "text = text.replace('.', '')\n",
+    "text = text.replace(',', '')\n",
+    "text = text.replace('[' ,'')\n",
+    "text = text.replace(']', '')\n",
+    "text = text.replace('\"', '')\n",
+    "\n",
+    "#Produce an array of all the distinct words in the text\n",
+    "textSplit = text.split()\n",
+    "\n",
+    "#Go through all the words in the text and convert everything to lower-case (i.e. ignore case)\n",
+    "index = 0\n",
+    "for word in textSplit:\n",
+    "    newWord = word.lower()\n",
+    "    textSplit[index] = newWord\n",
+    "    index = index+1\n",
+    "\n",
+    "#Initialize a dictionary of the counts of each word\n",
+    "freqCounts = {}\n",
+    "\n",
+    "#Determine the counts of all the different words in the array of words\n",
+    "#Then, add this key/frequency pairing to the dictionary of frequencies\n",
+    "for word in textSplit:\n",
+    "    count = 1\n",
+    "    if(word in freqCounts.keys()):\n",
+    "        count = freqCounts[word] + 1\n",
+    "    \n",
+    "    freqCounts[word] = count\n",
+    "\n",
+    "#Sort the frequencies of words from largest to smallest\n",
+    "import operator\n",
+    "sorted_freqCounts = reversed(sorted(freqCounts.items(), key=operator.itemgetter(1)))\n",
+    "\n",
+    "#Print out the first five words of the sorted list\n",
+    "count = 0\n",
+    "for element in sorted_freqCounts:\n",
+    "    if(count < 5):\n",
+    "        print(element[0])\n",
+    "    count = count+1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**3.** Generate 1000 random numbers from a normal distribution with mean = 10 and standard deviation = 2. Plot a histogram of the middle 500 of these numbers (i.e. from position 250 to 750), skipping every other number (So the histogram is only for 250 numbers)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "#Import statements\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "#Create a random normal distribution of 1000 numbers with mean of 10 and standard deviation of 2\n",
+    "dist = np.random.normal(10, 2, 1000)\n",
+    "\n",
+    "#Sort the distribution, and pick out the middle elements from position 250 to 750\n",
+    "temp = sorted(dist)[250:750]\n",
+    "\n",
+    "#Choose every other number\n",
+    "temp2 = []\n",
+    "for i in range(len(temp)):\n",
+    "    if i%2 == 0:\n",
+    "        temp2.append(temp[i])\n",
+    "\n",
+    "#Produce a histogram for the normal distribution\n",
+    "n, bins, patches = plt.hist(temp2, normed = True)\n",
+    "\n",
+    "#Specify the boundaries of the plot\n",
+    "plt.xlim((min(dist), max(dist)))\n",
+    "\n",
+    "#Show the plot\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**4.** Write Python code to download the image of a [ladybug](http://cdn.orkin.com/images/beetles/asian-beetle_720x630.jpg). Display it in the notebook using the `imshow` function from `matplotlib`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "#Import statements\n",
+    "import urllib.request\n",
+    "from PIL import Image\n",
+    "\n",
+    "#Save the image from the URL to your local box\n",
+    "urllib.request.urlretrieve(\"http://cdn.orkin.com/images/beetles/asian-beetle_720x630.jpg\", \"/Users/viveksriram/Desktop/ladybug.jpg\")\n",
+    "\n",
+    "#Open the image, express it as an array of numbers using numpy, and show the image using matplotlib\n",
+    "pil_im = Image.open(\"/Users/viveksriram/Desktop/ladybug.jpg\")\n",
+    "plt.imshow(np.asarray(pil_im))\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<img src=\"http://cdn.orkin.com/images/beetles/asian-beetle_720x630.jpg\"/>"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Image object>"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#This code correctly shows the image directly in the Jupyter notebook, but we're unclear if it's actually being saved as an array of numbers\n",
+    "from IPython.display import Image\n",
+    "image = Image(url= \"http://cdn.orkin.com/images/beetles/asian-beetle_720x630.jpg\")\n",
+    "image"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
